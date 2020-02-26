@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .container {
   width: 80%;
   margin: auto;
@@ -10,8 +16,9 @@
 }
 .btn-light {
   color: #000;
-  background-color: #eafaff;
+  background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 36, 45, 0.4);
+  font-weight: 700;
 }
 .btn-main {
   background-color: #ff51bf;
@@ -22,7 +29,7 @@
   border: 2px solid #eafaff;
   border-radius: 5px;
   margin: 5rem auto;
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,11 +45,37 @@
   font-weight: 700;
   color: #00242d;
 }
+
+.card:first-of-type .card-content {
+  order: 1;
+}
+
+.card:nth-of-type(2) .card-content {
+  order: 2;
+}
+
+.card:last-of-type .card-content {
+  order: 1;
+}
+
 .card-content .card-body {
   font-family: "Open Sans", sans-serif;
   font-weight: 100;
   color: #333;
 }
+
+.card:first-of-type img {
+  order: 2;
+}
+
+.card:nth-of-type(2) img {
+  order: 1;
+}
+
+.card:last-of-type img {
+  order: 2;
+}
+
 .card img,
 #footer-card img {
   margin: auto;
@@ -70,26 +103,31 @@ ul {
 }
 
 #main-header {
-  background: url("/images/bg-hero-desktop.svg");
+  background-image: url("/images/bg-hero-desktop.svg");
+  background-repeat: no-repeat;
+  background-color: #ebfbff;
+  height: 100vh;
 }
 #main-header #main-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  margin-bottom: 1.5rem;
 }
 #main-header #main-nav img {
-  width: 25%;
+  width: 15%;
 }
 #main-header #showcase {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 5rem;
 }
 #main-header #showcase-message {
   width: 38%;
 }
-#main-header #showcase-message h2 {
+#main-header #showcase-message h1 {
   width: 80%;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
@@ -156,7 +194,7 @@ ul {
   height: 30%;
   position: relative;
   top: -5rem;
-  background: #eafaff;
+  background: #fff;
   color: #00242d;
   width: 30%;
   z-index: 1;
@@ -177,7 +215,9 @@ ul {
 /* Responsive */
 @media only screen and (max-width: 500px) {
   #main-header {
-    background: url("../images/bg-hero-mobile.svg");
+    background-image: url("../images/bg-hero-mobile.svg");
+    background-color: #eafaff;
+    background-repeat: no-repeat;
   }
 
   #main-header #main-nav img {
@@ -196,11 +236,23 @@ ul {
     width: 100%;
   }
 
+  #main-header #showcase-image {
+    width: 100%;
+  }
+
+  header ~ .container {
+    width: 80%;
+  }
+
+  .card {
+    margin: 3rem 0;
+    padding: 1rem;
+    width: 100%;
+    flex-direction: column;
+  }
+
   .btn-main {
     margin: 1.5rem 0;
-  }
-  .card {
-    flex-direction: column;
   }
 
   .card img {
@@ -210,7 +262,7 @@ ul {
   #img-2 {
     order: initial;
   }
-  .card-content {
+  .card-content * {
     flex: 2;
     width: 100%;
     text-align: center;
