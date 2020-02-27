@@ -27,7 +27,7 @@
 .card,
 #footer-card {
   border: 2px solid #eafaff;
-  border-radius: 5px;
+  border-radius: 1rem;
   margin: 5rem auto;
   width: 100%;
   display: flex;
@@ -64,7 +64,8 @@
   color: #333;
 }
 
-.card:first-of-type img {
+.card:first-of-type img,
+.card:last-of-type img {
   order: 2;
 }
 
@@ -72,9 +73,9 @@
   order: 1;
 }
 
-.card:last-of-type img {
+/* .card:last-of-type img {
   order: 2;
-}
+} */
 
 .card img,
 #footer-card img {
@@ -158,10 +159,10 @@ ul {
 #main-footer .container #contact {
   display: grid;
 }
-#main-footer .container #contact > img {
+/* #main-footer .container #contact > img {
   border: solid red;
   color: #fff;
-}
+} */
 
 #main-footer .container #contact .contact-section {
   align-items: center;
@@ -218,30 +219,52 @@ ul {
     background-image: url("../images/bg-hero-mobile.svg");
     background-color: #eafaff;
     background-repeat: no-repeat;
+    height: 100%;
+  }
+
+  #main-header #main-nav {
+    padding: 0;
+    padding-top: 1.5rem;
   }
 
   #main-header #main-nav img {
     width: 35%;
   }
 
+  #main-header #main-nav .btn {
+    width: 45%;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
   #main-header #showcase {
     flex-direction: column;
-    text-align: center;
+    width: 90%;
+    margin: auto;
   }
 
   #main-header #showcase-message {
     width: 100%;
+    margin: 4rem auto;
+    text-align: center !important;
   }
-  #main-header #showcase-message h2 {
-    width: 100%;
+
+  #main-header #showcase-message h1 {
+    width: 70%;
+    margin: 0 auto 2rem;
+    font-weight: 700;
   }
 
   #main-header #showcase-image {
     width: 100%;
   }
 
-  header ~ .container {
+  #main-header + .container {
     width: 80%;
+  }
+
+  .container {
+    width: 100%;
   }
 
   .card {
@@ -257,22 +280,46 @@ ul {
 
   .card img {
     width: 100%;
+    order: 1 !important;
   }
 
   #img-2 {
     order: initial;
   }
-  .card-content * {
-    flex: 2;
-    width: 100%;
-    text-align: center;
-  }
-  #footer-card {
+  .card-content {
     width: 80%;
   }
+  .card-content * {
+    order: 2;
+    width: 100%;
+    text-align: center;
+    margin: 2rem auto;
+  }
+  #footer-card {
+    width: 90%;
+  }
 
-  #footer-links,
-  #icon-section {
-    display: none !important;
+  #main-footer .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main-footer .container #contact,
+  #main-footer .container #contact-section,
+  #main-footer .container #footer-links,
+  #main-footer .container #icon-section {
+    margin: 1rem;
+  }
+
+  #main-footer .container #contact * {
+    margin: 0.5rem 0;
+  }
+
+  #main-footer .container #footer-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  #main-footer .container + p {
+    text-align: center;
   }
 }
